@@ -17,7 +17,7 @@ define([
 
     // Complete tabs system
     var TabsView = hr.View.extend({
-        className: "cb-tabs",
+        className: "component-tabs-manager",
         defaults: {
             // Base layout
             layout: null,
@@ -85,7 +85,7 @@ define([
 
         // Return a tab by its id
         getById: function(id) {
-            return this.tabs.getById(id);
+            return this.tabs.get(id);
         },
 
         // Return a section by its id
@@ -146,7 +146,7 @@ define([
             });
 
             if (options.uniqueId) {
-                tab = this.tabs.getById(options.uniqueId)
+                tab = this.tabs.get(options.uniqueId)
             } else {
                 options.uniqueId = _.uniqueId("tab");
             }
@@ -229,7 +229,7 @@ define([
 
         // Change tab section
         changeTabSection: function(tab, section, options) {
-            if (_.isString(tab)) tab = this.tabs.getById(tab);
+            if (_.isString(tab)) tab = this.tabs.get(tab);
             if (!tab) return false;
 
             section = this.getSection(section);
