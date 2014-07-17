@@ -1,8 +1,8 @@
 define([
+    "src/views/manager",
     "less!src/stylesheets/main.less"
-], function() {
-    var hr = codebox.require("hr/hr");
-    var manager = new hr.View();
+], function(TabsManager) {
+    var manager = new TabsManager();
 
     // Add tabs to grid
     codebox.app.grid.addView(manager);
