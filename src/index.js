@@ -13,6 +13,12 @@ define([
         title: "Test"
     });
 
+    manager.on("tabs:opennew", function() {
+        manager.add(hr.View, {}, {
+            title: "Test"
+        });
+    });
+
     // Render the tabs manager
     manager.render();
 });

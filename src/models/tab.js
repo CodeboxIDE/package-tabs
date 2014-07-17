@@ -115,7 +115,7 @@ define(function() {
             };
 
             // Check that we can close the tab
-            return Q(this.view.tabCanBeClosed())
+            return Q((this.view.tabCanBeClosed || function() { return true; })())
             .then(handleClose, handleClose);
         },
 
