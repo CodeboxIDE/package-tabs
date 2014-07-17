@@ -1,0 +1,4 @@
+package-tabs
+============
+
+Tabs manager
