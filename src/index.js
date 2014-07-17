@@ -1,7 +1,7 @@
 define([
-    "hr/hr",
     "less!src/stylesheets/main.less"
-], function(hr) {
+], function() {
+    var hr = codebox.require("hr/hr");
     var manager = new hr.View();
 
     // Add tabs to grid
