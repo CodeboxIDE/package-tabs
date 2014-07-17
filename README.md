@@ -1,4 +1,3 @@
-package-tabs
-============
+# Tabs Manager
 
-Tabs manager
+This package contains the tabs manager.
