@@ -21,4 +21,7 @@ define([
 
     // Render the tabs manager
     manager.render();
+
+    // Make the tab manager global
+    codebox.tabs = manager;
 });
