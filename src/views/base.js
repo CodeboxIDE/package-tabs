@@ -18,15 +18,6 @@ define(function() {
         },
 
         /**
-         * Keyboard shortcuts inside the tab
-         */
-        shortcuts: {
-            "alt+w": "closeTab",
-            "alt+shift+tab": "tabGotoPrevious",
-            "alt+tab": "tabGotoNext"
-        },
-
-        /**
          * Title in the menu bar
          */
         menuTitle: "Tab",
@@ -47,39 +38,7 @@ define(function() {
                 this.menu.destroy();
             }, this);
 
-            // Keyboard shortcuts
-            this.setShortcuts(this.shortcuts || {});
-
             return this;
-        },
-
-        /**
-         * Define (add) new keyboard shortcuts
-         *
-         * @param {object} navigations map of keyboard shortcut -> method
-         * @param {object} [container] object to get method from if the method is a string
-         */
-        setShortcuts: function(navigations, container) {
-            var navs = {};
-            container = container || this;
-
-            if (!this.tab.manager.options.keyboardShortcuts) return;
-
-            _.each(navigations, function(method, key) {
-                navs[key] = function() {
-                    // Trigger only if active tab
-                    if (!this.isActiveTab()) return;
-
-                    // Get method
-                    if (!_.isFunction(method)) method = container[method];
-
-                    // Apply method
-                    if (!method) return;
-                    method.apply(container, arguments);
-                };
-            }, this);
-
-            keyboard.bind(navs, this);
         },
 
         /**
@@ -154,24 +113,6 @@ define(function() {
          */
         tabCanBeClosed: function() {
             return true;
-        },
-
-        // Navigation between tabs
-        tabGotoPrevious: function(e) {
-            if (e) e.preventDefault();
-            var that = this;
-            setTimeout(function() {
-                var p = that.tab.prevTab();
-                if (p) p.active();
-            }, 0);
-        },
-        tabGotoNext: function(e) {
-            if (e) e.preventDefault();
-            var that = this;
-            setTimeout(function() {
-                var p = that.tab.nextTab();
-                if (p) p.active();
-            }, 0);
         }
     });
 

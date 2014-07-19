@@ -136,6 +136,22 @@ define(function() {
                 'section': this.section.sectionId,
                 'active': this.isActive()
             };
+        },
+
+        // Navigation between tabs
+        gotoPrevious: function() {
+            var that = this;
+            setTimeout(function() {
+                var p = that.prevTab();
+                if (p) p.active();
+            }, 0);
+        },
+        gotoNext: function() {
+            var that = this;
+            setTimeout(function() {
+                var p = that.nextTab();
+                if (p) p.active();
+            }, 0);
         }
     });
 

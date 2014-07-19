@@ -33,4 +33,26 @@ define([
             manager.tabs.get(manager.activeTab).close();
         }
     });
+
+    commands.register({
+        id: "tab.goto.previous",
+        title: "Tab: Goto Previous",
+        shortcuts: [
+            "alt+shift+tab"
+        ],
+        run: function() {
+            manager.tabs.get(manager.activeTab).gotoPrevious();
+        }
+    });
+
+    commands.register({
+        id: "tab.goto.next",
+        title: "Tab: Goto Next",
+        shortcuts: [
+            "alt+tab"
+        ],
+        run: function() {
+            manager.tabs.get(manager.activeTab).gotoNext();
+        }
+    });
 });

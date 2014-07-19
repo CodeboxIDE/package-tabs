@@ -53,6 +53,8 @@ define([
             var that = this;
             TabsView.__super__.initialize.apply(this, arguments);
 
+            this.Panel = TabPanelView;
+
             // Current active tab id
             this.activeTab = null;
             this.activeSection = 0;
