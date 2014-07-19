@@ -7,7 +7,8 @@
     margin: 0px;
     padding: 0px;
     background: @tabColor;
-     .transition(padding-left ease 0.25s);
+    color: @tabTextColor;
+    .transition(padding-left ease 0.25s);
 
     &.move,
     &.active.move {
@@ -79,14 +80,22 @@
             color: transparent;
             position: absolute;
             right: 8px;
+            text-decoration: none;
         }
     }
 
     &:hover {
+        color: @tabHoverTextColor;
+
         .inner {
             .close {
                 color: #e74c3c !important;
                 opacity: 1;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -95,6 +104,7 @@
         z-index: 10;
         border-color: @tabActiveBorder;
         background: @tabActiveColor;
+        color: @tabActiveTextColor;
 
         .inner {
             .close {
