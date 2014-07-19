@@ -3,9 +3,11 @@ define([
     "src/collections/tabs",
 
     "src/views/tab",
+    "src/views/section",
+
     "src/views/base",
-    "src/views/section"
-], function(Tab , Tabs, TabView, TabPanelView, TabsSectionView) {
+    "src/views/html"
+], function(Tab , Tabs, TabView, TabsSectionView, TabPanelView, TabHtmlPanel) {
     var _ = codebox.require("hr/utils");
     var $ = codebox.require("hr/dom");
     var hr = codebox.require("hr/hr");
@@ -54,6 +56,7 @@ define([
             TabsView.__super__.initialize.apply(this, arguments);
 
             this.Panel = TabPanelView;
+            this.HtmlPanel = TabHtmlPanel;
 
             // Current active tab id
             this.activeTab = null;
