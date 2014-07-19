@@ -20,4 +20,17 @@ define([
 
     // Make the tab manager global
     codebox.tabs = manager;
+
+
+    // Commands
+    commands.register({
+        id: "tab.close",
+        title: "Tab: Close",
+        shortcuts: [
+            "alt+w"
+        ],
+        run: function() {
+            manager.tabs.get(manager.activeTab).close();
+        }
+    });
 });
