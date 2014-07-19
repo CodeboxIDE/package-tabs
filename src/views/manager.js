@@ -127,7 +127,7 @@ define([
 
             options = _.defaults(options || {}, {
                 // Tab type
-                type: "unknown",
+                type: "tab",
 
                 // Don't trigger event
                 silent: false,
