@@ -117,7 +117,7 @@ define(function() {
 
             // Check that we can close the tab
             return Q((this.view.tabCanBeClosed || function() { return true; })())
-            .then(handleClose, handleClose);
+            .then(handleClose, handleClose).fail(console.error.bind(console));
         },
 
         // Close all other tabs in the section

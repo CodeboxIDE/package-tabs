@@ -35,7 +35,7 @@ define(function() {
                 this.trigger("tab:state", state);
             });
             this.on("tab:close", function() {
-                this.menu.destroy();
+
             }, this);
 
             return this;
