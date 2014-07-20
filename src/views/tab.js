@@ -23,11 +23,11 @@ define(function() {
             "click": "open",
         },
         states: {
-            'modified': "fa-asterisk",
-            'warning': "fa-exclamation",
-            'offline': "fa-flash",
-            'sync': "fa-exchange",
-            'loading': "fa fa-refresh fa-spin"
+            'modified':     "*",
+            'warning':      "!",
+            'offline':      "*",
+            'sync':         "[-]",
+            'loading':      "*"
         },
 
         // Constructor
@@ -79,8 +79,9 @@ define(function() {
             var states = this.model.get("state", "").split(" ");
             _.each(states, function(state) {
                 if (state && this.states[state]) {
-                    $("<i>", {
-                        "class": "state fa "+this.states[state]+" state-"+state
+                    $("<span>", {
+                        "class": "state  state-"+state,
+                        "text": this.states[state]
                     }).prependTo(inner);
                 }
             }, this);
