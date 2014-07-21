@@ -28,14 +28,21 @@ define(function() {
             this.tabs = this.parent;
             this.tab = this.options.tab;
 
+            // Status bar messages
+            this.statusbar = new codebox.statusbar.Messages();
+            this.statusbar.pipe(codebox.statusbar.messages.collection);
+
             // Bind tab event
             this.listenTo(this.tab.manager, "active", function(tab) {
                 var state = tab.id == this.tab.id;
 
+                this.statusbar.invoke("toggleVisibility", state);
                 this.trigger("tab:state", state);
             });
             this.on("tab:close", function() {
-
+                this.statusbar.stopListening();
+                this.statusbar.invoke("destroy");
+                this.statusbar.destroy();
             }, this);
 
             return this;
