@@ -42,7 +42,6 @@ define(function() {
             this.on("tab:close", function() {
                 this.statusbar.stopListening();
                 this.statusbar.invoke("destroy");
-                this.statusbar.destroy();
             }, this);
 
             return this;
