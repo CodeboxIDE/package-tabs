@@ -5,6 +5,7 @@ define(function() {
 
     var dnd = codebox.require("utils/dragdrop");
     var keyboard = codebox.require("utils/keyboard");
+    var menu = codebox.require("utils/menu");
 
     var GridView = codebox.require("views/grid");
 
@@ -63,6 +64,37 @@ define(function() {
                     that.open();
                 }
             });
+
+            // Context menu
+            menu.add(this.$el, _.compact([
+                (this.model.manager.options.newTab ? {
+                    'label': "New Tab",
+                    'click': function() {
+                        that.model.manager.openDefault();
+                    }
+                } : null),
+                (this.model.manager.options.newTab ? { 'type': "divider" } : null),
+                {
+                    'label': "Close",
+                    'click': function() {
+                        that.close();
+                    }
+                },
+                {
+                    'label': "Close Other Tabs",
+                    'click': function() {
+                        that.closeOthers();
+                    }
+                },
+                { 'type': "divider" },
+                {
+                    'label': "New Group",
+                    'click': function() {
+                        that.model.splitSection();
+                    }
+                },
+                { 'type': "divider" }
+            ]));
 
             return this;
         },
