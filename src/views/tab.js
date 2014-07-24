@@ -93,7 +93,19 @@ define(function() {
                         that.model.splitSection();
                     }
                 },
-                { 'type': "divider" }
+                { 'type': "divider" },
+                {
+                    'type': "menu",
+                    'label': "Layout",
+                    'items': _.map(that.model.manager.options.layouts, function(value, key) {
+                        return {
+                            'label': key,
+                            'click': function() {
+                                that.model.manager.setLayout(value);
+                            }
+                        }
+                    })
+                }
             ]));
 
             return this;
