@@ -20,6 +20,7 @@ define([
 
     // Make the tab manager global
     codebox.tabs = manager;
+    codebox.tabs.Manager = TabsManager;
 
 
     // Commands
