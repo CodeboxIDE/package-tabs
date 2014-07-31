@@ -116,9 +116,13 @@ define(function() {
             this.$el.empty();
 
             var inner = $("<div>", {
-                "class": "inner",
-                "html": this.model.get("title")
+                "class": "inner"
             }).appendTo(this.$el);
+
+            var title = $("<span>", {
+                "class": "title",
+                "html": this.model.get("title")
+            }).appendTo(inner);
 
             var states = this.model.get("state", "").split(" ");
             _.each(states, function(state) {
@@ -129,6 +133,13 @@ define(function() {
                     }).prependTo(inner);
                 }
             }, this);
+
+            var icon = this.model.get("icon");
+            if (icon) {
+                $("<i>", {
+                    "class": "icon octicon octicon-"+this.model.get("icon")
+                }).prependTo(inner);
+            }
 
             $("<a>", {
                 "class": "close",

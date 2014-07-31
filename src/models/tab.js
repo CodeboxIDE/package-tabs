@@ -7,6 +7,7 @@ define(function() {
             "id": null,
             "title": "",
             "state": "",
+            "icon": "",
             "type": "tab",
             "active": false
         },

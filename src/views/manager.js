@@ -143,6 +143,9 @@ define([
                 // Base title
                 title: "untitled",
 
+                // Base icon
+                icon: "",
+
                 // Unique id for this tab
                 uniqueId: null,
 
@@ -162,7 +165,8 @@ define([
                 }, {
                     'type': options.type,
                     'id': options.uniqueId,
-                    'title': options.title
+                    'title': options.title,
+                    'icon': options.icon
                 });
 
                 // Create tab object
