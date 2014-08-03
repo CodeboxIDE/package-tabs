@@ -46,7 +46,7 @@ define([
             draggable: true,
 
             // Enable keyboard shortcuts
-            keyboardShortcuts: true
+            keyboardShortcuts: true,
         },
         events: {},
 

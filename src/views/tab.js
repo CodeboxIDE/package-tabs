@@ -66,47 +66,49 @@ define(function() {
             });
 
             // Context menu
-            menu.add(this.$el, _.compact([
-                (this.model.manager.options.newTab ? {
-                    'label': "New Tab",
-                    'click': function() {
-                        that.model.manager.openDefault();
-                    }
-                } : null),
-                (this.model.manager.options.newTab ? { 'type': "divider" } : null),
-                {
-                    'label': "Close",
-                    'click': function() {
-                        that.close();
-                    }
-                },
-                {
-                    'label': "Close Other Tabs",
-                    'click': function() {
-                        that.closeOthers();
-                    }
-                },
-                { 'type': "divider" },
-                {
-                    'label': "New Group",
-                    'click': function() {
-                        that.model.splitSection();
-                    }
-                },
-                { 'type': "divider" },
-                {
-                    'type': "menu",
-                    'label': "Layout",
-                    'items': _.map(that.model.manager.options.layouts, function(value, key) {
-                        return {
-                            'label': key,
-                            'click': function() {
-                                that.model.manager.setLayout(value);
-                            }
+            if (this.model.manager.options.tabMenu) {
+                menu.add(this.$el, _.compact([
+                    (this.model.manager.options.newTab ? {
+                        'label': "New Tab",
+                        'click': function() {
+                            that.model.manager.openDefault();
                         }
-                    })
-                }
-            ]));
+                    } : null),
+                    (this.model.manager.options.newTab ? { 'type': "divider" } : null),
+                    {
+                        'label': "Close",
+                        'click': function() {
+                            that.close();
+                        }
+                    },
+                    {
+                        'label': "Close Other Tabs",
+                        'click': function() {
+                            that.closeOthers();
+                        }
+                    },
+                    { 'type': "divider" },
+                    {
+                        'label': "New Group",
+                        'click': function() {
+                            that.model.splitSection();
+                        }
+                    },
+                    { 'type': "divider" },
+                    {
+                        'type': "menu",
+                        'label': "Layout",
+                        'items': _.map(that.model.manager.options.layouts, function(value, key) {
+                            return {
+                                'label': key,
+                                'click': function() {
+                                    that.model.manager.setLayout(value);
+                                }
+                            }
+                        })
+                    }
+                ]));
+            }
 
             return this;
         },
