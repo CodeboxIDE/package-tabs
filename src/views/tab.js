@@ -49,7 +49,6 @@ define(function() {
                     if (ib >= 0 && ib < i) {
                         i = i - 1;
                     }
-                    console.log("drop tab at position", i);
                     that.model.manager.changeTabSection(tab, that.list.collection.sectionId, {
                         at: i
                     });
