@@ -1,4 +1,5 @@
 var _ = codebox.require("hr.utils");
+var Q = codebox.require("q");
 var Model = codebox.require("hr.model");
 
 var Tab = Model.extend({

@@ -5,6 +5,7 @@ var TabsSectionView = require("./section");
 var TabPanelView = require("./base");
 var TabHtmlPanel = require("./html");
 
+var Q = codebox.require("q");
 var _ = codebox.require("hr.utils");
 var $ = codebox.require("jquery");
 var storage = codebox.require("hr.storage");
