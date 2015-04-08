@@ -1,19 +1,16 @@
-define([
-    "src/models/tab"
-], function(Tab) {
-    var _ = codebox.require("hr/utils");
-    var hr = codebox.require("hr/hr");
+var Tab = require("../models/tab");
+var _ = codebox.require("hr.utils");
+var Collection = codebox.require("hr.collection");
 
-    var Tabs = hr.Collection.extend({
-        model: Tab,
+var Tabs = Collection.extend({
+    model: Tab,
 
-        // Return current active tab
-        getActive: function() {
-            return this.find(function(tab) {
-                return tab.get("active");
-            });
-        },
-    });
-
-    return Tabs;
+    // Return current active tab
+    getActive: function() {
+        return this.find(function(tab) {
+            return tab.get("active");
+        });
+    },
 });
+
+module.exports = Tabs;
