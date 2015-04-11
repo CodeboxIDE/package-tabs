@@ -91,7 +91,11 @@ var TabsView = View.extend({
     },
 
     // Return a section by its id
-    getSection: function(id) {
+    getSection: function(id, opts) {
+        opts = _.defaults(opts || {}, {
+            at: undefined
+        });
+
         var s = _.find(this.grid.views, function(section) {
             return section.sectionId == id;
         });
@@ -100,7 +104,7 @@ var TabsView = View.extend({
             s = new TabsSectionView({
                 sectionId: id
             }, this);
-            this.grid.addView(s);
+            this.grid.addView(s, opts);
         }
 
         return s;
@@ -147,7 +151,10 @@ var TabsView = View.extend({
             uniqueId: null,
 
             // Base section id
-            section: this.activeSection
+            section: this.activeSection,
+
+            // Position for the new section
+            at: undefined
         });
 
         if (options.uniqueId) {
@@ -178,7 +185,7 @@ var TabsView = View.extend({
             // Add to section
             var sectionId = options.section;
             for (;;) {
-                var section = this.getSection(sectionId);
+                var section = this.getSection(sectionId, { at: options.at });
                 if (this.options.maxTabsPerSection > 0 && section.tabs.size() >= this.options.maxTabsPerSection) {
                     sectionId = _.uniqueId("tabSection");
                 } else {
