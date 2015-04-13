@@ -9,7 +9,8 @@ var Tab = Model.extend({
         "state": "",
         "icon": "",
         "type": "tab",
-        "active": false
+        "active": false,
+        "context": {}
     },
 
     initialize: function() {

@@ -1,5 +1,6 @@
 require("./stylesheets/main.less");
 var TabsManager = require("./views/manager");
+var _ = codebox.require("hr.utils");
 var commands = codebox.require("core/commands");
 
 var manager = new TabsManager();
@@ -9,7 +10,12 @@ codebox.app.grid.addView(manager);
 
 // Change commands context
 manager.on("active", function(tab) {
-    commands.setContext(tab.get("type"), tab.view);
+    var ctx = {
+        tab: tab
+    };
+    ctx[tab.get("type")] = tab.view;
+
+    commands.setContext(_.extend(ctx, tab.get("context")));
 });
 
 // Render the tabs manager
