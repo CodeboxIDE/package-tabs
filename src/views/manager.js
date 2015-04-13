@@ -154,7 +154,10 @@ var TabsView = View.extend({
             section: this.activeSection,
 
             // Position for the new section
-            at: undefined
+            at: undefined,
+
+            // Context for tab
+            context: {}
         });
 
         if (options.uniqueId) {
@@ -170,7 +173,8 @@ var TabsView = View.extend({
                 'type': options.type,
                 'id': options.uniqueId,
                 'title': options.title,
-                'icon': options.icon
+                'icon': options.icon,
+                'context': options.context
             });
 
             // Create tab object
